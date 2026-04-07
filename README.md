@@ -74,26 +74,111 @@ n path)
 ----------------------------------------------------------------------------------
 
 ## 🔑 Step 6: SSH Configuration
-- Create user: ansadmin
+- Create user: Ansadmin
 - Enable password authentication
 - Give sudo (NOPASSWD)
 - Configure SSH access
-
-(Add screenshot: SSH / ping success)
-
 ----------------------------------------------------------------------------------
 
 ## 🔗 Step 7: Jenkins → Ansible Connection
 - Configure Publish over SSH
 - Add Ansible server credentials
 
-(Add screenshot: SSH success in Jenkins)
+<img width="1920" height="1080" alt="Screenshot (33)" src="https://github.com/user-attachments/assets/df483049-ea7b-43c2-93b3-50a5ee7d24e9" />
+
 
 ----------------------------------------------------------------------------------
 
 ## 🐳 Step 8: Docker Setup
 
 ### Dockerfile
+FROM tomcat
+RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
+COPY ./*.war /usr/local/tomcat/webapps
+
+<img width="1920" height="1080" alt="Screenshot (41)" src="https://github.com/user-attachments/assets/0609d770-a245-4dcc-9316-077389c516b9" />
+
+
+----------------------------------------------------------------------------------
+
+## 📦 Step 9: Ansible Playbook 
+
+<img width="1920" height="1080" alt="Screenshot (32)" src="https://github.com/user-attachments/assets/aa9d765c-4c5a-4012-b503-b98099f23d71" />
 
 
 
+Run Create_image_WebAPP.yml
+
+<img width="1920" height="1080" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/b0459bd9-30aa-4be2-aa32-ff3cb9846365" />
+
+-It will Push the Image to dockerhub
+
+<img width="1920" height="1080" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/ab3edd07-94a8-40c9-8ceb-4285adbafa30" />
+
+----------------------------------------------------------------------------------
+
+## ☸️ Step 10: Kubernetes Setup
+- Create Kubernetes cluster
+- Configure nodes
+- Keep deployment.yml & service.yml
+
+----------------------------------------------------------------------------------
+
+
+## 🚀 Step 12: CI Job
+- Create Maven Job
+- Run Ansible playbook via SSH To Push Docker Image
+- 
+  
+## 🚀 Step 13: CD Job
+- Create Freestyle Job
+- Run Ansible playbook via SSH To Deploy kubernetes Manisfest.
+- 
+- ----------------------------------------------------------------------------------
+
+## 📦 Step 12: Deployment Playbook
+-hosts: kubernetes
+remote_user: root
+tasks:
+
+name: Deploy app
+command: kubectl apply -f deployment.yml
+name: Deploy service
+command: kubectl apply -f service.yml
+name: Restart deployment
+command: kubectl rollout restart deployment.apps/webshows-deployment
+
+<img width="1920" height="1080" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/52783ba1-7024-4033-86f0-8c49147b5180" />
+
+
+----------------------------------------------------------------------------------
+
+## 🔄 Automation Flow
+Code push → CI → Docker build → Push → CD → Kubernetes deploy
+
+----------------------------------------------------------------------------------
+
+## 📊 Verification
+<img width="1920" height="1080" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/379abb8d-3542-493a-ae03-ac8ba15d44df" />
+
+----------------------------------------------------------------------------------
+
+## 🌐 Final Output
+Application accessed via LoadBalancer
+
+
+<img width="1920" height="1080" alt="Screenshot (55)" src="https://github.com/user-attachments/assets/02fad627-46c5-40f0-9b50-b7831e627bbe" />
+
+----------------------------------------------------------------------------------
+
+## 🐞 Issues Faced
+- Tomcat not running → fixed by copying files
+
+(Add screenshot: error + fix)
+
+----------------------------------------------------------------------------------
+
+## 🔗 GitHub Repo
+https://github.com/manish-mahalinge/Netflix-WebApp
+
+----------------------------------------------------------------------------------
