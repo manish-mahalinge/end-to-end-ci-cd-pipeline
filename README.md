@@ -16,3 +16,6 @@ The pipeline automates:
 Developer → GitHub → Jenkins → Ansible → DockerHub → Kubernetes → LoadBalancer → User
 
 <img width="1776" height="738" alt="Screenshot 2026-04-06 172349" src="https://github.com/user-attachments/assets/de18fc21-6997-4693-a5c5-a943a7fc6798" />
+
+
+
