@@ -174,30 +174,29 @@ COPY ./*.war /usr/local/tomcat/webapps
 - Triggered automatically after successful CI job execution
 
 ----------------------------------------------------------------------------------
-- 
-- ----------------------------------------------------------------------------------
-
 ## 📦 Step 12: Deployment Playbook
--hosts: kubernetes
-remote_user: root
-tasks:
-
-name: Deploy app
-command: kubectl apply -f deployment.yml
-name: Deploy service
-command: kubectl apply -f service.yml
-name: Restart deployment
-command: kubectl rollout restart deployment.apps/webshows-deployment
-
 <img width="1920" height="1080" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/52783ba1-7024-4033-86f0-8c49147b5180" />
 
 
 ----------------------------------------------------------------------------------
 ## 🔄 Automation Flow
 
-🚀 Code Push → ⚙️ CI (Jenkins) → 🐳 Docker Build → 📦 DockerHub → 🚀 CD → ☸️ Kubernetes
+🚀 Code Push → ⚙️ CI (Jenkins) → 🐳 Docker Build → 📦 DockerHub → 🚀 CD → ☸️ Kubernetes## 🎯 Conclusion
 
+Successfully designed and implemented a complete end-to-end CI/CD pipeline using Jenkins, Ansible, Docker, and Kubernetes.
+
+The pipeline automates the entire workflow from code integration to deployment:
+- Code changes trigger CI pipeline using Poll SCM
+- Application is built and packaged using Maven
+- Docker image is created and pushed to DockerHub
+- CD pipeline is automatically triggered using Jenkins downstream jobs
+- Application is deployed on Kubernetes cluster with LoadBalancer access
+
+Built a fully automated CI/CD pipeline for application build and deployment on Kubernetes.
 ----------------------------------------------------------------------------------
+
+
+
 
 ## 📊 Verification
 <img width="1920" height="1080" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/379abb8d-3542-493a-ae03-ac8ba15d44df" />
