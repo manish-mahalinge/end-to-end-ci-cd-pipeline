@@ -1,4 +1,4 @@
-# 🚀End-to-End CI/CD Pipeline using Jenkins, Ansible & Kubernetes
+Built an end-to-end CI/CD pipeline using Jenkins, AWS, Java, Maven, Docker, Ansible, and Kubernetes.
 
 ## 📌 Project Overview
 This project demonstrates a **real-time production-level CI/CD pipeline** for deploying a Java-based web application using DevOps tools.
