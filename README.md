@@ -115,6 +115,11 @@ FROM tomcat
 RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
 COPY ./*.war /usr/local/tomcat/webapps
 
+
+
+
+
+
 <img width="1920" height="1080" alt="Screenshot (41)" src="https://github.com/user-attachments/assets/0609d770-a245-4dcc-9316-077389c516b9" />
 
 
@@ -146,7 +151,7 @@ Run Create_image_WebAPP.yml
 
 ## 🚀 Step 12: CI Job
 - Create Maven Job
-- Run Ansible playbook via SSH To Push Docker Image
+- Run Ansible playbook via SSH To Push Docker Image to DockerHub.
 - 
   
 ## 🚀 Step 13: CD Job
@@ -173,7 +178,9 @@ command: kubectl rollout restart deployment.apps/webshows-deployment
 ----------------------------------------------------------------------------------
 
 ## 🔄 Automation Flow
-Code push → CI → Docker build → Push → CD → Kubernetes deploy
+## 🔄 Automation Flow
+
+🚀 Code Push → ⚙️ CI (Jenkins) → 🐳 Docker Build → 📦 DockerHub → 🚀 CD → ☸️ Kubernetes
 
 ----------------------------------------------------------------------------------
 
