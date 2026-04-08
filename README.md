@@ -120,13 +120,6 @@ RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
 COPY ./*.war /usr/local/tomcat/webapps
 
 
-
-
-
-
-<img width="1920" height="1080" alt="Screenshot (41)" src="https://github.com/user-attachments/assets/0609d770-a245-4dcc-9316-077389c516b9" />
-
-
 ----------------------------------------------------------------------------------
 
 ## 📦 Step 9: Ansible Playbook - Connection to Kubernetes Node
