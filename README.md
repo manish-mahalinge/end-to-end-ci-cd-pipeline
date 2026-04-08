@@ -176,6 +176,16 @@ COPY ./*.war /usr/local/tomcat/webapps
 - Triggered automatically after successful CI job execution
 
 ----------------------------------------------------------------------------------
+## ⚙️ Jenkins CI/CD
+
+Two jobs (CI and CD) are configured in Jenkins.  
+The pipeline is automatically triggered using Poll SCM on code changes.  
+One job is currently in a running state as shown below.
+
+
+<img width="1920" height="1080" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/fc9a3fcc-f1db-472b-bd7a-95ac05aaf436" />
+
+
 ## 📦 Step 12: Deployment Playbook
 <img width="1920" height="1080" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/52783ba1-7024-4033-86f0-8c49147b5180" />
 
