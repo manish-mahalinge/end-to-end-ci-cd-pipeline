@@ -120,7 +120,7 @@ COPY ./*.war /usr/local/tomcat/webapps
 
 ----------------------------------------------------------------------------------
 
-## 📦 Step 9: Ansible Playbook 
+## 📦 Step 9: Ansible Playbook Sucessfully Connect to Kubernetes(*node) 
 
 <img width="1920" height="1080" alt="Screenshot (32)" src="https://github.com/user-attachments/assets/aa9d765c-4c5a-4012-b503-b98099f23d71" />
 
