@@ -1,7 +1,6 @@
 <h1 align="center">🚀 Netflix WebApp - CI/CD Pipeline</h1>
 <p align="center">
-End-to-End CI/CD Pipeline using AWS EC2, Jenkins,Tomcat, Maven, Ansible, Docker & Kubernetes
-</p>
+
 ## 📌 Project Overview
 This project demonstrates a **real-time production-level CI/CD pipeline** for deploying a Java-based web application using DevOps tools.
 
