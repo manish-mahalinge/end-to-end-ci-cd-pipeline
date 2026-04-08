@@ -51,6 +51,7 @@ Total 6 EC2 instances were used for this project:
 
 ## ⚙️ Step 1: Git Setup
 - Launch EC2 for Git Server
+- write code &
 - Push code to GitHub
 
 ----------------------------------------------------------------------------------
@@ -79,9 +80,12 @@ n path)
 ----------------------------------------------------------------------------------
 
 ## ⚙️ Step 4: CI Job (Maven Build)
-- Create Maven Job
-- Add GitHub repo URL
-- Maven Goal: clean package
+
+- Created Jenkins Maven job
+- Configured GitHub repository URL
+- Set Maven goal: clean package
+- Generated .war artifact
+- Transferred .war file to Ansible server via SSH
 
 ----------------------------------------------------------------------------------
 
@@ -125,17 +129,24 @@ COPY ./*.war /usr/local/tomcat/webapps
 
 ----------------------------------------------------------------------------------
 
-## 📦 Step 9: Ansible Playbook Sucessfully Connect to Kubernetes(*node) 
+## 📦 Step 9: Ansible Playbook - Connection to Kubernetes Node
+
+- Successfully established connection between Ansible server and Kubernetes node
+- Verified connectivity using ping module
+- Enabled remote execution of deployment playbooks
 
 <img width="1920" height="1080" alt="Screenshot (32)" src="https://github.com/user-attachments/assets/aa9d765c-4c5a-4012-b503-b98099f23d71" />
 
 
-
-Run Create_image_WebAPP.yml
+-------------------------------------------------------------------------------------
+- Executed Ansible playbook (Create_image_WebAPP.yml)
+- Successfully built Docker image
+- Pushed Docker image to DockerHub repository
+- Verified successful execution during runtime
 
 <img width="1920" height="1080" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/b0459bd9-30aa-4be2-aa32-ff3cb9846365" />
 
--It will Push the Image to dockerhub
+- Successfully pushed Docker image to DockerHub and verified in repository
 
 <img width="1920" height="1080" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/ab3edd07-94a8-40c9-8ceb-4285adbafa30" />
 
@@ -148,15 +159,28 @@ Run Create_image_WebAPP.yml
 
 ----------------------------------------------------------------------------------
 
-
 ## 🚀 Step 12: CI Job
-- Create Maven Job
-- Run Ansible playbook via SSH To Push Docker Image to DockerHub.
-- 
-  
+
+- Created Jenkins Maven job
+- Configured GitHub repository for source code
+- Built application using Maven (clean package)
+- Executed Ansible playbook via SSH
+- Automated Docker image build and push to DockerHub
+- Enabled Poll SCM to trigger job on code changes
+- Configured downstream job to trigger CD pipeline automatically
+
+----------------------------------------------------------------------------------
+
 ## 🚀 Step 13: CD Job
-- Create Freestyle Job
-- Run Ansible playbook via SSH To Deploy kubernetes Manisfest.
+
+- Created Jenkins Freestyle job
+- Configured SSH connection to Ansible server
+- Executed Ansible playbook via SSH
+- Deployed Kubernetes manifests (deployment.yml, service.yml)
+- Exposed application using LoadBalancer service
+- Triggered automatically after successful CI job execution
+
+----------------------------------------------------------------------------------
 - 
 - ----------------------------------------------------------------------------------
 
@@ -176,8 +200,6 @@ command: kubectl rollout restart deployment.apps/webshows-deployment
 
 
 ----------------------------------------------------------------------------------
-
-## 🔄 Automation Flow
 ## 🔄 Automation Flow
 
 🚀 Code Push → ⚙️ CI (Jenkins) → 🐳 Docker Build → 📦 DockerHub → 🚀 CD → ☸️ Kubernetes
