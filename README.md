@@ -1,4 +1,4 @@
-<h1 align="center">🚀 End-to-End CI/CD Pipeline</h1>
+<h1 align="center">🚀 End-to-End CI/CD Pipeline on Kubernetes</h1>
 <p align="center">
 
 ## 📌 Project Overview
